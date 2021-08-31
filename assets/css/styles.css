@@ -175,7 +175,7 @@ img{
 .nav__link:hover{
   position: relative;
   background-color: var(--first-color);
-  color:  var(--second-color);;
+  color:  var(--second-color);
   padding: .7rem .7rem;
   font-weight: var(--font-semi);
   border-radius: .5rem;
@@ -194,7 +194,7 @@ img{
 .active{
   background-color: var(--first-color);
   color: var(--second-color);
-  padding: .5rem .5rem;
+  padding: .7rem .7rem;
   font-weight: var(--font-semi);
   border-radius: .5rem;
 }

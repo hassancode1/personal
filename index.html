@@ -23,11 +23,11 @@
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link ">Home</a></li>
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
                         <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                         <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                         <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link active">Contact</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link ">Contact</a></li>
                     </ul>
                 </div>
 
@@ -42,7 +42,7 @@
             <section class="home bd-grid " id="home">
              
                 <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Hassan</span><br> Web Developer</h1>
+                    <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Hassan</span><br>  a Web Developer</h1>
            
                     <a href="#contact" class="button">Contact</a>
                 </div>
@@ -243,7 +243,7 @@
                             <i class=" uil uil-phone contact-icon"></i>
                             <div>
                                 <h3 class="contact-title"> Call Me</h3>
-                                <span class="contact-subtitle">09052104928</span>
+                                <span class="contact-subtitle">+2349052104928</span>
                             </div>
                         </div>
                       
@@ -257,22 +257,22 @@
                         </div>
                       
                     </div>
-                    <form action="" method="POST" class="contact__form">
+                    <form   class="contact__form" id="contact_form" action="https://formsubmit.co/hassanjaeh@gmail.com" method="POST">
                         <div class="contact__content">
                             <label class="contact__label">Name</label>
-                            <input type="text"  class="contact__input" required>
+                            <input type="text" id="name" class="contact__input name" required>
                         </div>
                         <div class="contact__content">
                             <label class="contact__label">Email</label>
-                            <input type="email"  class="contact__input" required>
+                            <input type="email" id="email" class="contact__input" required>
                         </div>
                         
                         <div class="contact__content">
                             <label class="contact__label">message</label>
-                            <textarea name="" id="" cols="0" rows="10"  class="contact__input" required></textarea>
+                            <textarea name="" id="" cols="0" rows="10"  class="contact__input" id="message" required></textarea>
                         </div>
                        
-                        <button type="button submit " value="Send" class="contact__button button">Send</button>
+                        <button type="submit" value="submit" class="contact__button button">Send</button>
                     </form>
                 </div>
             </section>
@@ -297,7 +297,31 @@
         <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
         <script src="assets/js/main.js"></script>
       
-      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Here is a script where we will be collecting data from the form 
+            <script>
+                $('form').on('submit', (e) => {
+                     e.preventDefault();
+        
+                    const name = $('#name').val().trim();
+                    const email = $('#email').val().trim();
+                    const message= $('#message').val().trim();
+                   
+        
+                    const data = {
+                        name,
+                        email,
+                       message
+                    };
+        
+                    $.post('/email', data, function() {
+                        console.log('Server recieved our data');
+                    });
+
+                });
+                // document.getElementById('#form-data').reset();
+            </script> -->
 
         <!--===== SCROLL REVEAL =====-->
  
