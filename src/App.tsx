@@ -1,6 +1,6 @@
 
 
-import { Github, Linkedin, Mail, Phone, Calendar, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail } from "lucide-react";
 import { Link } from 'react-router-dom';
 import './App.css';
 
