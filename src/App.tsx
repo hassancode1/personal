@@ -35,7 +35,7 @@ export default function Home() {
           <div className="space-y-4">
             <div className="terminal-prompt inline-block">$ cat about.md</div>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed ml-4">
-              Ai Enthusiast | Web & app developer |
+              Ai Enthusiast | FullStack Engineer |
             </p>
           </div>
         </section>
