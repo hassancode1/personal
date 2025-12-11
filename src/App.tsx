@@ -443,7 +443,6 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="mt-20 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>Built with Next.js, TypeScript, and Tailwind CSS</p>
           <p className="mt-2">© 2025 Hassan Iliyasu. All rights reserved.</p>
         </footer>
       </div>
