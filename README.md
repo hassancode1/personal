@@ -76,51 +76,34 @@ Next.js was chosen for this portfolio because it offers:
 - **Metadata API** - SEO optimization with dynamic metadata
 - **Static Generation** - Pre-rendered pages for better performance
 
-## Configuration
+## Project Structure
 
-The project uses configuration files in the `src/config` directory for easy customization:
-
-- `About.tsx` - About section content
-- `Contact.tsx` - Contact form settings
-- `Experience.tsx` - Work experience details
-- `Footer.tsx` - Footer links and content
-- `Gears.tsx` - Setup/gear section
-- `Hero.tsx` - Hero section content
-- `Meta.tsx` - SEO and metadata
-- `Navbar.tsx` - Navigation links
-- `Projects.tsx` - Project showcase settings
-- `Quote.ts` - Random quotes configuration
-- `Resume.ts` - Resume section details
-- `Setup.tsx` - Development setup information
-- `cat.ts` - Enable disable the cat
-
-## Adding New Technology Icons
-
-1. Visit [Devicon](https://devicon.dev/) to find the icon you want to add
-2. Create a new component in `src/components/technologies/`
-3. Follow the existing component structure for consistency
-
-Example:
-
-```tsx
-export const NewTechIcon = () => {
-  return <svg>// SVG content from devicon</svg>;
-};
+```
+src/
+├── app/                 # Next.js App Router pages
+├── components/          # Reusable React components
+├── config/             # Configuration files
+├── data/               # MDX content (blog posts, projects)
+├── lib/                # Utility functions
+└── types/              # TypeScript type definitions
 ```
 
-## Adding Content
+## Key Next.js Concepts Demonstrated
 
-### Blog Posts
+- **File-based Routing** - Pages are created by adding files to the `app` directory
+- **Layout System** - Shared layouts using `layout.tsx` files
+- **Server Components** - Components that render on the server for better performance
+- **Dynamic Routes** - Dynamic pages using `[slug]` syntax
+- **Metadata Generation** - SEO optimization with the Metadata API
+- **Image Optimization** - Using Next.js Image component for optimized loading
 
-1. Create a new MDX file in `src/data/blog/`
-2. Add metadata and content following existing post structure
-3. Add blog thumbnail in `public/blog/`
+## Contact
 
-### Projects
+Hassan Iliyasu - Software Engineer
 
-1. Create a new MDX file in `src/data/projects/`
-2. Add metadata and content following existing project structure
-3. Add project thumbnail in `public/project/`
+- GitHub: [@hassancode1](https://github.com/hassancode1)
+- LinkedIn: [Hassan Iliyasu](https://linkedin.com/in/hassan-iliyasu)
+- Email: hassaniliyasu@example.com
 
 ## License
 
