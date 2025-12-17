@@ -1,105 +1,80 @@
-# Sleek Portfolio by ramxcodes
+# Hassan Iliyasu - Portfolio
 
-A modern, responsive portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Shadcn UI. Features a blog system, project showcase, work experience timeline, and contact form with Telegram integration.
+A modern, responsive portfolio website built with Next.js 15, showcasing my work as a Software Engineer specializing in full-stack development.
 
-![Portfolio Preview](/public/meta/hero.png)
+## About This Project
 
-## Deploy 
+This portfolio is built using Next.js, a powerful React framework that enables server-side rendering, static site generation, and many other features out of the box. Next.js provides an excellent developer experience with features like:
 
-Click here to your portfolio template now:
+- **App Router** - Modern routing system with layouts and nested routes
+- **Server Components** - Improved performance with server-side rendering
+- **Image Optimization** - Automatic image optimization and lazy loading
+- **Built-in CSS Support** - Support for CSS Modules, Sass, and CSS-in-JS
+- **TypeScript Support** - First-class TypeScript support
+- **API Routes** - Full-stack capabilities with API endpoints
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Framxcodes%2Fsleek-portfolio&env=TELEGRAM_BOT_TOKEN,TELEGRAM_CHAT_ID,GEMINI_API_KEY,NEXT_PUBLIC_URL,NEXT_PUBLIC_UMAMI_SRC,NEXT_PUBLIC_UMAMI_ID)
+## Tech Stack
 
-## Features
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **Shadcn UI** - Modern component library
+- **MDX** - Markdown with JSX for blog posts
+- **Vercel** - Deployment and hosting platform
 
-- **Next.js 15** with App Router
-- **Tailwind CSS** for styling
-- **Shadcn UI** components
-- **Dark/Light** mode
-- **Responsive** design
-- **MDX** for blog posts and project details
-- **Contact Form** with Telegram integration
-- **SEO** optimized
-- **TypeScript** for type safety
-- **Umami Analytics** for privacy-focused web analytics
+## Why Next.js?
+
+Next.js was chosen for this portfolio because it offers:
+
+1. **Performance** - Automatic code splitting and optimization
+2. **SEO-Friendly** - Server-side rendering for better search engine visibility
+3. **Developer Experience** - Hot reloading, TypeScript support, and great tooling
+4. **Scalability** - Easy to scale from simple sites to complex applications
+5. **Deployment** - Seamless deployment with Vercel and other platforms
 
 ## Prerequisites
 
-Before you begin, ensure you have the following installed:
-
 - Node.js (v18 or higher)
-- Bun (preferred) or npm
-
-## Environment Variables
-
-Create a `.env` file in the root directory with the following variables:
-
-```env
-TELEGRAM_BOT_TOKEN="your-token"
-TELEGRAM_CHAT_ID="your-chat-id"
-GEMINI_API_KEY="your-api-key"
-NODE_ENV="development"
-NEXT_PUBLIC_URL="http://localhost:3000"
-NEXT_PUBLIC_UMAMI_SRC="your-umami-script-url"
-NEXT_PUBLIC_UMAMI_ID="your-umami-website-id"
-```
-
-### Setting up Telegram Integration
-
-1. Create a new bot with [@BotFather](https://t.me/botfather) on Telegram
-2. Copy the bot token provided
-3. Start a chat with your bot
-4. Get your chat ID by:
-   - Add your `bot` in a group as `admin`
-   - Then send `/id` to [@rosebot](https://t.me/MissRose_bot)
-   - Boom! you get your `id`
-
-### Setting up Umami Analytics
-
-1. Visit Umami:
-   - Self-host Umami or use [Umami Cloud](https://cloud.umami.is)
-   - Follow Umami's [installation guide](https://umami.is/docs/install)
-
-2. Get your credentials:
-   - Copy your Umami script URL (ends with `/script.js`)
-   - Get your website ID from Umami dashboard
-
-3. Configure environment variables:
-   ```env
-   NEXT_PUBLIC_UMAMI_SRC="https://[your-umami-instance]/script.js"
-   NEXT_PUBLIC_UMAMI_ID="your-website-id"
-   ```
+- npm, yarn, or bun package manager
 
 ## Getting Started
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/ramxcodes/sleek-portfolio.git
-   cd sleek-portfolio
+   git clone https://github.com/hassancode1/personal.git
+   cd personal
    ```
 
 2. Install dependencies:
 
    ```bash
-   # Using bun (recommended)
-   bun install
-
-   # Using npm
    npm install
+   # or
+   yarn install
+   # or
+   bun install
    ```
 
 3. Run the development server:
 
    ```bash
-   # Using bun
-   bun dev
-
-   # Using npm
    npm run dev
+   # or
+   yarn dev
+   # or
+   bun dev
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Next.js Features Used
+
+- **App Router** - Modern file-based routing system
+- **Server Components** - Improved performance with server-side rendering
+- **Image Component** - Optimized image loading and performance
+- **Metadata API** - SEO optimization with dynamic metadata
+- **Static Generation** - Pre-rendered pages for better performance
 
 ## Configuration
 
