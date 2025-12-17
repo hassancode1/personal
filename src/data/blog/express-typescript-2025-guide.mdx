@@ -1,0 +1,404 @@
+---
+title: 'Setting Up Express with TypeScript: The Right Way (2025 Guide)'
+description: 'Complete guide to setting up Express.js with TypeScript in 2025. Learn best practices, project structure, and modern development workflows.'
+image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80'
+tags: ['express', 'typescript', 'nodejs', 'backend']
+date: '2025-01-10'
+isPublished: true
+---
+
+## Introduction
+
+Express.js remains one of the most popular Node.js frameworks, and when combined with TypeScript, it provides excellent developer experience with type safety and better tooling. In this comprehensive guide, I'll show you how to set up Express with TypeScript the right way in 2025.
+
+## Why Express + TypeScript?
+
+The combination offers several advantages:
+
+- **Type Safety**: Catch errors at compile time
+- **Better IDE Support**: Enhanced autocomplete and refactoring
+- **Improved Maintainability**: Self-documenting code with types
+- **Modern JavaScript Features**: Use latest ES features with confidence
+
+## Project Setup
+
+### Step 1: Initialize Your Project
+
+```bash
+mkdir express-typescript-app
+cd express-typescript-app
+npm init -y
+```
+
+### Step 2: Install Dependencies
+
+```bash
+# Production dependencies
+npm install express cors helmet morgan dotenv
+
+# Development dependencies
+npm install -D typescript @types/node @types/express @types/cors @types/morgan
+npm install -D ts-node nodemon concurrently
+```
+
+### Step 3: TypeScript Configuration
+
+Create `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "lib": ["ES2022"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/controllers/*": ["src/controllers/*"],
+      "@/middleware/*": ["src/middleware/*"],
+      "@/routes/*": ["src/routes/*"],
+      "@/types/*": ["src/types/*"],
+      "@/utils/*": ["src/utils/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
+```
+
+## Project Structure
+
+Create the following directory structure:
+
+```
+src/
+├── controllers/
+├── middleware/
+├── routes/
+├── types/
+├── utils/
+├── config/
+├── app.ts
+└── server.ts
+```
+
+## Core Application Setup
+
+### Step 1: Create Types
+
+Create `src/types/express.ts`:
+
+```typescript
+import { Request } from 'express'
+
+export interface CustomRequest extends Request {
+  user?: {
+    id: string
+    email: string
+  }
+}
+
+export interface ApiResponse<T = any> {
+  success: boolean
+  message: string
+  data?: T
+  error?: string
+}
+```
+
+### Step 2: Environment Configuration
+
+Create `src/config/env.ts`:
+
+```typescript
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+export const config = {
+  port: process.env.PORT || 3000,
+  nodeEnv: process.env.NODE_ENV || 'development',
+  jwtSecret: process.env.JWT_SECRET || 'your-secret-key',
+  dbUrl: process.env.DATABASE_URL || 'mongodb://localhost:27017/myapp'
+} as const
+
+export const isDevelopment = config.nodeEnv === 'development'
+export const isProduction = config.nodeEnv === 'production'
+```
+
+### Step 3: Middleware Setup
+
+Create `src/middleware/errorHandler.ts`:
+
+```typescript
+import { Request, Response, NextFunction } from 'express'
+import { ApiResponse } from '@/types/express'
+
+export class AppError extends Error {
+  public statusCode: number
+  public isOperational: boolean
+
+  constructor(message: string, statusCode: number) {
+    super(message)
+    this.statusCode = statusCode
+    this.isOperational = true
+
+    Error.captureStackTrace(this, this.constructor)
+  }
+}
+
+export const errorHandler = (
+  err: Error,
+  req: Request,
+  res: Response<ApiResponse>,
+  next: NextFunction
+): void => {
+  let error = { ...err }
+  error.message = err.message
+
+  // Log error
+  console.error(err)
+
+  // Mongoose bad ObjectId
+  if (err.name === 'CastError') {
+    const message = 'Resource not found'
+    error = new AppError(message, 404)
+  }
+
+  // Mongoose duplicate key
+  if (err.name === 'MongoError' && (err as any).code === 11000) {
+    const message = 'Duplicate field value entered'
+    error = new AppError(message, 400)
+  }
+
+  // Mongoose validation error
+  if (err.name === 'ValidationError') {
+    const message = Object.values((err as any).errors).map((val: any) => val.message).join(', ')
+    error = new AppError(message, 400)
+  }
+
+  res.status((error as AppError).statusCode || 500).json({
+    success: false,
+    message: error.message || 'Server Error'
+  })
+}
+```
+
+### Step 4: Controllers
+
+Create `src/controllers/userController.ts`:
+
+```typescript
+import { Request, Response, NextFunction } from 'express'
+import { ApiResponse } from '@/types/express'
+import { AppError } from '@/middleware/errorHandler'
+
+export const getUsers = async (
+  req: Request,
+  res: Response<ApiResponse>,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    // Simulate database call
+    const users = [
+      { id: 1, name: 'John Doe', email: 'john@example.com' },
+      { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
+    ]
+
+    res.status(200).json({
+      success: true,
+      message: 'Users retrieved successfully',
+      data: users
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+
+export const getUserById = async (
+  req: Request,
+  res: Response<ApiResponse>,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const { id } = req.params
+
+    if (!id) {
+      throw new AppError('User ID is required', 400)
+    }
+
+    // Simulate database call
+    const user = { id: parseInt(id), name: 'John Doe', email: 'john@example.com' }
+
+    res.status(200).json({
+      success: true,
+      message: 'User retrieved successfully',
+      data: user
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+```
+
+### Step 5: Routes
+
+Create `src/routes/userRoutes.ts`:
+
+```typescript
+import { Router } from 'express'
+import { getUsers, getUserById } from '@/controllers/userController'
+
+const router = Router()
+
+router.get('/', getUsers)
+router.get('/:id', getUserById)
+
+export default router
+```
+
+### Step 6: Main Application
+
+Create `src/app.ts`:
+
+```typescript
+import express, { Application, Request, Response } from 'express'
+import cors from 'cors'
+import helmet from 'helmet'
+import morgan from 'morgan'
+import { errorHandler } from '@/middleware/errorHandler'
+import userRoutes from '@/routes/userRoutes'
+import { ApiResponse } from '@/types/express'
+
+const app: Application = express()
+
+// Security middleware
+app.use(helmet())
+app.use(cors())
+
+// Logging
+app.use(morgan('combined'))
+
+// Body parsing
+app.use(express.json({ limit: '10mb' }))
+app.use(express.urlencoded({ extended: true }))
+
+// Routes
+app.get('/', (req: Request, res: Response<ApiResponse>) => {
+  res.json({
+    success: true,
+    message: 'Express TypeScript Server is running!'
+  })
+})
+
+app.use('/api/users', userRoutes)
+
+// Error handling
+app.use(errorHandler)
+
+export default app
+```
+
+### Step 7: Server Entry Point
+
+Create `src/server.ts`:
+
+```typescript
+import app from './app'
+import { config } from '@/config/env'
+
+const startServer = (): void => {
+  try {
+    app.listen(config.port, () => {
+      console.log(`🚀 Server running on port ${config.port}`)
+      console.log(`📝 Environment: ${config.nodeEnv}`)
+    })
+  } catch (error) {
+    console.error('❌ Error starting server:', error)
+    process.exit(1)
+  }
+}
+
+startServer()
+```
+
+## Package.json Scripts
+
+Update your `package.json`:
+
+```json
+{
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "clean": "rm -rf dist",
+    "type-check": "tsc --noEmit"
+  }
+}
+```
+
+## Development Workflow
+
+### Running in Development
+
+```bash
+npm run dev
+```
+
+### Building for Production
+
+```bash
+npm run build
+npm start
+```
+
+## Best Practices
+
+### 1. Use Strict TypeScript Configuration
+
+Enable strict mode and all strict checks for better type safety.
+
+### 2. Implement Proper Error Handling
+
+Always use try-catch blocks and pass errors to the error handling middleware.
+
+### 3. Use Path Aliases
+
+Configure path aliases for cleaner imports and better code organization.
+
+### 4. Environment Configuration
+
+Keep all environment-specific configuration in a centralized config file.
+
+### 5. Type Your Responses
+
+Always type your API responses for better developer experience.
+
+## Conclusion
+
+Setting up Express with TypeScript properly provides a solid foundation for building scalable Node.js applications. The type safety, better tooling, and improved developer experience make it worth the initial setup effort.
+
+This setup gives you a production-ready foundation that you can extend based on your specific needs.
+
+---
+
+*Originally published on [Medium](https://mujtabaadamu.medium.com/setting-up-express-with-typescript-the-right-way-2025-guide-3571b8b80e21)*

@@ -35,7 +35,7 @@ export default function RootLayout({
               <Quote />
               <Footer />
               <ChatBubble />
-              <UmamiAnalytics />
+              {/* <UmamiAnalytics /> */}
             </ReactLenis>
           </ThemeProvider>
         </body>

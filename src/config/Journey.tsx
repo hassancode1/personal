@@ -10,12 +10,7 @@ export type JourneyItem = {
 };
 
 export const journeyItems: JourneyItem[] = [
-  {
-    name: 'My Journey',
-    description: 'Overview of my learning and career journey.',
-    icon: Calender,
-    href: '/journey',
-  },
+
   {
     name: 'Certificates & Achievements',
     description: 'A curated list of certificates and achievements.',

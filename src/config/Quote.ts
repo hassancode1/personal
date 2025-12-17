@@ -1,27 +1,26 @@
 export const quotes = [
   {
-    quote: `A man who is master of patience is master of everything else.`,
-    author: 'George Savile',
+    quote: `A good Navy is not a provocation to war. It is the surest guaranty of peace.`,
+    author: 'President Theodore Roosevelt',
   },
   {
-    quote: `You have a right to perform your prescribed duty, but you are not
-            entitled to the fruits of actions.`,
-    author: 'Bhagavad Gita',
+    quote: `The Navy has both a tradition and a future—and we look with confidence and faith in both directions.`,
+    author: 'Admiral Arleigh Burke',
   },
   {
-    quote: `Man is made by his belief. As he believes, so he is.`,
-    author: 'Bhagavad Gita',
+    quote: `Ships at a distance are beautiful; close up, they are all work.`,
+    author: 'Rear Admiral Daniel V. Gallery',
   },
   {
-    quote: `Arise, awake, and stop not till the goal is reached.`,
-    author: 'Katha Upanishad',
+    quote: `Without a decisive naval force we can do nothing definitive, and with it, everything honorable and glorious.`,
+    author: 'General George Washington',
   },
   {
-    quote: `If the pain doesn't kill me, it will only make me stronger.`,
-    author: 'Sung Jin-Woo, Solo Leveling',
+    quote: `The sea is the same as it has been since before men ever went on it in boats.`,
+    author: 'Ernest Hemingway',
   },
   {
-    quote: `I’ll take a potato chip… AND EAT IT!`,
-    author: 'Light Yagami, Death Note',
+    quote: `A powerful Navy we have always regarded as our proper and natural means of defense.`,
+    author: 'President Abraham Lincoln',
   },
 ];

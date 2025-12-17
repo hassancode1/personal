@@ -1,35 +1,33 @@
 export const certificates = [
-  // Users can drop PNG files into public/certificates and reference them here
-  // Example entry:
-  // { file: '/certificates/my-cert.png', title: 'Course Name', issuer: 'Issuing Org', date: '2024-05' }
-  // Add your SSoC certificate here (place the PNG in public/certificates/ssoc-piyush.png)
   {
-    file: '/certificates/ssoc-piyush.png',
-    title: 'SSoC Certificate',
-    issuer: 'Summer of Code (SSoC)',
-    date: '2025-10-10',
+    file: '/certificates/hackathon.jpeg',
+    title: 'Third Place Winner - C-CODE Hackathon UNIABUJA',
+    issuer: 'University of Abuja',
+    date: '2023-11',
   },
+];
+
+export const education = [
   {
-    file: '/certificates/example-certificate-1.png',
-    title: 'Example Certificate 1',
-    issuer: 'Example Issuer',
-    date: '2024-01-01',
+    degree: 'Diploma In Computer Science',
+    institution: 'Institute Of Information Technology Kazaure',
+    location: 'Kazaure, Nigeria',
+    graduationDate: 'June 2024',
   },
+];
+
+export const achievements = [
   {
-    file: '/certificates/example-certificate-2.png',
-    title: 'Example Certificate 2',
-    issuer: 'Example Issuer',
-    date: '2023-08-01',
-  },
-  // SSoC certificate provided by the user (place the PNG in public/certificates/ssoc-certificate.png)
-  {
-    file: '/certificates/ssoc-certificate.png',
-    title: 'SSoC Participation Certificate',
-    issuer: 'SSoC',
-    date: '2025-10-10',
+    title: 'Third Place Winner - C-CODE Hackathon UNIABUJA',
+    organization: 'University of Abuja',
+    date: 'November 2023',
+    project: 'Ed Quest',
+    description: 'Collaborated with Team Cool - Coders to design innovative digital solutions aimed at advancing educational development. Awarded third place for exceptional skills and dedication in a competitive and technology-driven environment.',
   },
 ];
 
 export default {
   certificates,
+  education,
+  achievements,
 };
