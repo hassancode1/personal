@@ -1,11 +1,8 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'next-view-transitions';
 import React from 'react';
-
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
-import CV from '../svgs/CV';
-import Calender from '../svgs/Calender';
 import { Card } from '../ui/card';
 import { journeyItems } from '@/config/Journey';
 

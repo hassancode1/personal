@@ -1,6 +1,5 @@
 import React from 'react';
 import CV from '@/components/svgs/CV';
-import Calender from '@/components/svgs/Calender';
 
 export type JourneyItem = {
   name: string;
