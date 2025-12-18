@@ -16,7 +16,7 @@ export const siteConfig = {
   title: 'Sleek Portfolio',
   description: 'Sleek Portfolio Template by @Ramxcodes',
   url: process.env.NEXT_PUBLIC_URL || 'http://localhost:3000',
-  ogImage: '/meta/opengraph-image.png',
+  ogImage: getImagePath('/meta/opengraph-image.png'),
   author: {
     name: about.name,
     twitter: '@ramxcodes',
@@ -48,7 +48,7 @@ export const pageMetadata: Record<string, PageMeta> = {
       'web development',
       'projects',
     ],
-    ogImage: '/meta/hero.png',
+    ogImage: getImagePath('/meta/hero.png'),
     twitterCard: 'summary_large_image',
   },
 
@@ -74,7 +74,7 @@ export const pageMetadata: Record<string, PageMeta> = {
       'software developer',
       'employment history',
     ],
-    ogImage: '/meta/work.png',
+    ogImage: getImagePath('/meta/work.png'),
     twitterCard: 'summary_large_image',
   },
 
@@ -90,7 +90,7 @@ export const pageMetadata: Record<string, PageMeta> = {
       'applications',
       'software',
     ],
-    ogImage: '/meta/projects.png',
+    ogImage: getImagePath('/meta/projects.png'),
     twitterCard: 'summary_large_image',
   },
 
@@ -106,7 +106,7 @@ export const pageMetadata: Record<string, PageMeta> = {
       'web development',
       'technical writing',
     ],
-    ogImage: '/meta/blogs.png',
+    ogImage: getImagePath('/meta/blogs.png'),
     twitterCard: 'summary_large_image',
   },
 
@@ -122,7 +122,7 @@ export const pageMetadata: Record<string, PageMeta> = {
       'qualifications',
       'download',
     ],
-    ogImage: '/meta/resume.png',
+    ogImage: getImagePath('/meta/resume.png'),
     twitterCard: 'summary',
   },
 
@@ -139,7 +139,7 @@ export const pageMetadata: Record<string, PageMeta> = {
       'productivity',
       'development environment',
     ],
-    ogImage: '/meta/gears.png',
+    ogImage: getImagePath('/meta/gears.png'),
     twitterCard: 'summary_large_image',
   },
 
@@ -156,7 +156,7 @@ export const pageMetadata: Record<string, PageMeta> = {
       'development environment',
       'guide',
     ],
-    ogImage: '/meta/setup.png',
+    ogImage: getImagePath('/meta/setup.png'),
     twitterCard: 'summary_large_image',
   },
 };

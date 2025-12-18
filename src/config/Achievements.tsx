@@ -1,6 +1,8 @@
+import { getImagePath } from '@/lib/utils';
+
 export const certificates = [
   {
-    file: '/certificates/hackathon.jpeg',
+    file: getImagePath('/certificates/hackathon.jpeg'),
     title: 'Third Place Winner - C-CODE Hackathon UNIABUJA',
     issuer: 'University of Abuja',
     date: '2023-11',
