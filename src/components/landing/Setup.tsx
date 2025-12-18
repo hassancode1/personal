@@ -5,7 +5,6 @@ import React from 'react';
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
 import Code from '../svgs/Code';
-import Gear from '../svgs/Gear';
 import { Card } from '../ui/card';
 
 const setup = [

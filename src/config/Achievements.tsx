@@ -26,8 +26,10 @@ export const achievements = [
   },
 ];
 
-export default {
+const achievementsConfig = {
   certificates,
   education,
   achievements,
 };
+
+export default achievementsConfig;

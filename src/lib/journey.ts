@@ -18,4 +18,6 @@ export function getJourneyContent() {
   }
 }
 
-export default { getJourneyContent };
+const journeyLib = { getJourneyContent };
+
+export default journeyLib;
