@@ -5,6 +5,7 @@ import NodeJs from '@/components/technologies/NodeJs';
 import PostgreSQL from '@/components/technologies/PostgreSQL';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import TypeScript from '@/components/technologies/TypeScript';
+import { getImagePath } from '@/lib/utils';
 
 export interface Technology {
   name: string;
@@ -35,7 +36,7 @@ export const experiences: Experience[] = [
     company: 'Hago',
     position: 'Software Engineer',
     location: 'Remote',
-    image: '/assets/hago.jpeg',
+    image: getImagePath('/assets/hago.jpeg'),
     description: [
       'Architected and developed a full-stack marketplace platform connecting service providers with customers, delivering seamless experiences across web and mobile platforms with scalable infrastructure supporting thousands of concurrent users',
       'Designed and implemented the marketplace feature enabling vendors to list products and services, with advanced search capabilities, intelligent filtering, and category management that improved product discovery by 60%',
@@ -90,7 +91,7 @@ export const experiences: Experience[] = [
     company: 'Saaspro',
     position: 'Software Engineer',
     location: 'Remote',
-    image: '/assets/saaspro.jpeg',
+    image: getImagePath('/assets/saaspro.jpeg'),
     description: [
       'Sole frontend engineer developing healthcare applications with Next.js and React Native',
       'Built mobile app for secure doctor-patient communication',
@@ -136,7 +137,7 @@ export const experiences: Experience[] = [
     company: 'Flexisaf Edu Soft',
     position: 'Software Engineer',
     location: 'Remote',
-    image: '/assets/flexisaf.jpeg',
+    image: getImagePath('/assets/flexisaf.jpeg'),
     description: [
       'Mentored team of 3 frontend developers',
       'Contributed to SAFapply, onboarding 12 schools and 20,000+ applicants',

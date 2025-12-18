@@ -26,6 +26,7 @@
 import Github from '@/components/svgs/Github';
 import LinkedIn from '@/components/svgs/LinkedIn';
 import Mail from '@/components/svgs/Mail';
+import { getImagePath } from '@/lib/utils';
 import Bun from '@/components/technologies/Bun';
 import JavaScript from '@/components/technologies/JavaScript';
 import MongoDB from '@/components/technologies/MongoDB';
@@ -56,7 +57,7 @@ export const heroConfig = {
   // Personal Information
   name: 'Hassan Iliyasu',
   title: 'AI Enthusiast | FullStack Engineer',
-  avatar: '/assets/logo.png',
+  avatar: getImagePath('/assets/logo.png'),
 
   // Skills Configuration
   skills: [

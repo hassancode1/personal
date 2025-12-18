@@ -1,6 +1,7 @@
 'use client';
 
 import ChatBubbleIcon from '@/components/svgs/ChatBubbleIcon';
+import { getImagePath } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -257,7 +258,7 @@ const ChatBubble: React.FC = () => {
       <ExpandableChatHeader>
         <div className="flex items-center space-x-3">
           <Avatar className="h-8 w-8 border-2 border-primary bg-blue-300 dark:bg-yellow-300">
-            <AvatarImage src="/assets/logo.png" alt="Assistant" />
+            <AvatarImage src={getImagePath("/assets/logo.png")} alt="Assistant" />
             <AvatarFallback>AI</AvatarFallback>
           </Avatar>
           <div>
@@ -290,7 +291,7 @@ const ChatBubble: React.FC = () => {
                 <div className="flex items-start space-x-2">
                   {message.sender === 'bot' && (
                     <Avatar className="h-6 w-6 border-2 border-primary bg-blue-300 dark:bg-yellow-300">
-                      <AvatarImage src="/assets/logo.png" alt="Assistant" />
+                      <AvatarImage src={getImagePath("/assets/logo.png")} alt="Assistant" />
                       <AvatarFallback>AI</AvatarFallback>
                     </Avatar>
                   )}

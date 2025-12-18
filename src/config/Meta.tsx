@@ -1,5 +1,6 @@
 import { about } from './About';
 import { heroConfig } from './Hero';
+import { getImagePath } from '@/lib/utils';
 
 export interface PageMeta {
   title: string;
@@ -57,7 +58,7 @@ export const pageMetadata: Record<string, PageMeta> = {
     description:
       "Get in touch with me for collaborations, projects, or opportunities. I'd love to hear from you!",
     keywords: ['contact', 'hire', 'collaboration', 'freelance', 'developer'],
-    ogImage: '/assets/logo.png',
+    ogImage: getImagePath('/assets/logo.png'),
     twitterCard: 'summary',
   },
 

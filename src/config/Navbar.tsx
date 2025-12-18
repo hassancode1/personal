@@ -3,9 +3,11 @@ export interface NavItem {
   href: string;
 }
 
+import { getImagePath } from '@/lib/utils';
+
 export const navbarConfig = {
   logo: {
-    src: '/assets/logo.png',
+    src: getImagePath('/assets/logo.png'),
     alt: 'logo',
     width: 100,
     height: 100,

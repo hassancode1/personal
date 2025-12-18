@@ -60,12 +60,7 @@ jobs:
           cat package.json | grep -A 10 '"scripts"'
 
       - name: Build with Next.js
-        env:
-          NEXT_PUBLIC_BASE_PATH: ${{ github.event.repository.name != format('{0}.github.io', github.repository_owner) && format('/{0}', github.event.repository.name) || '' }}
         run: |
-          echo "Repository: ${{ github.event.repository.name }}"
-          echo "Owner: ${{ github.repository_owner }}"
-          echo "Base path: $NEXT_PUBLIC_BASE_PATH"
           echo "Starting Next.js build..."
           npm run build
           echo "Build completed, checking output..."

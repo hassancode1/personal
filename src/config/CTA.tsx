@@ -5,9 +5,11 @@
  * Customize the call-to-action section of your portfolio.
  */
 
+import { getImagePath } from '@/lib/utils';
+
 export const ctaConfig = {
   // Profile image settings
-  profileImage: '/assets/logo.png',
+  profileImage: getImagePath('/assets/logo.png'),
   profileAlt: 'Profile',
 
   // CTA button settings
